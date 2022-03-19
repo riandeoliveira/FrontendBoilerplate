@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Mern Stack Boilerplate Front-End",
+  "name": "Mern Stack Boilerplate Front-End Sample",
   "start_url": ".",
   "display": "standalone"
 }
