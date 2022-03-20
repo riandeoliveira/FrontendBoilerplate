@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@import "./styles/animations/animations.css";
+
 * {
   border: 0;
   box-sizing: border-box;
