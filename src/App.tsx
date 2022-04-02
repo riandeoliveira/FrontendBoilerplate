@@ -1,3 +1,5 @@
-export const App: React.FC = () => {
+const App: React.FC = () => {
   return <></>;
 };
+
+export default App;
