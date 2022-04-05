@@ -106,13 +106,19 @@ rm -rf .git
 LICENSE
 ```
 
-- Run the following command.
+- Install the necessary dependencies.
+
+```
+npm install
+```
+
+- At the end of the installation, launch the application.
 
 ```
 npm start
 ```
 
-Your application will be ready and running on right [here](http://localhost:3000) ;)
+Your boilerplate application will be ready and running right [here](http://localhost:3000) ;)
 
 <br>
 
