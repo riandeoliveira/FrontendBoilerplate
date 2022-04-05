@@ -13,7 +13,7 @@ Boilerplate for front-end development projects. Fully configured and ready to us
   <br>
   <br>
   <img alt="React logo. A blue atom." src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" height="35" title="React.js logo" width="50"></img>
-  <img alt="Typescript logo. A blue square with the light letters TS in the lower right corner." src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" height="35" title="TypeScript logo" width="50"></img>
+  <img alt="Typescript logo. A blue square with the white letters TS in the lower right corner." src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" height="35" title="TypeScript logo" width="50"></img>
 </div>
 
 ## 🗂️ Project Structure
