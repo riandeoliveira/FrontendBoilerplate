@@ -49,7 +49,7 @@ Boilerplate for front-end development projects. Fully configured and ready to us
 │   │   └── ...
 │   │
 │   ├── interfaces
-│   │   └── interfaces.ts
+│   │   └── ...
 │   │
 │   ├── styles
 │   │   ├── animations

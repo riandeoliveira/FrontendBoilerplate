@@ -1,5 +1,5 @@
 {
-  "name": "fontend-boilerplate",
+  "name": "frontend-boilerplate",
   "version": "0.1.0",
   "homepage": "frontend-boilerplate/",
   "proxy": "http://localhost:5000",
