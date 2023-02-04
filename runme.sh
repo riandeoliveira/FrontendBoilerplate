@@ -139,20 +139,14 @@ git add .
 
 echo "Making the first commit..."
 
+break_line
+
 git commit -m "feat: initial commit"
 
 echo "Pushing the changes..."
 
 git push origin main
 git push origin develop
-
-echo "Starting project..."
-
-yarn dev
-
-if [ $? -eq 1 ]; then
-  npm run dev
-fi
 
 echo "Deleting 'runme.sh' file..."
 echo "Have a nice coding, $AUTHOR!"
