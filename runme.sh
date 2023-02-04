@@ -32,8 +32,6 @@ echo "Deleting boilerplate .git ..."
 
 rm -rf .git
 
-break_line
-
 # replaces placeholders with input data
 
 echo "Adding information to the project ..."
@@ -70,3 +68,10 @@ sed -i "s/<GITHUB_REPO_NAME>/$GITHUB_REPO_NAME/g" package.json
 sed -i "s/<PROJECT_NAME>/$PROJECT_NAME/g" README.md
 sed -i "s/<GITHUB_USERNAME>/$GITHUB_USERNAME/g" README.md
 sed -i "s/<AUTHOR>/$AUTHOR/g" README.md
+
+echo "Deleting runme.sh file ..."
+echo "You are ready to start!"
+
+sleep 3
+
+rm -rf runme.sh
