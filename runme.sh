@@ -143,10 +143,16 @@ break_line
 
 git commit -m "feat: initial commit"
 
+break_line
+
 echo "Pushing the changes..."
+
+break_line
 
 git push origin main
 git push origin develop
+
+break_line
 
 echo "Deleting 'runme.sh' file..."
 echo "Have a nice coding, $AUTHOR!"
