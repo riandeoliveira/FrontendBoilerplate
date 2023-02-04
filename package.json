@@ -1,14 +1,14 @@
 {
-  "name": "<%= props.lowerCaseProjectName %>",
-  "description": "<YOUR_PROJECT_DESCRIPTION>",
+  "name": "<LOWERCASE_PROJECT_NAME>",
+  "description": "<DESCRIPTION>",
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
-  "homepage": "<YOUR_PROJECT_URL>",
+  "homepage": "<PROJECT_URL>",
   "main": "src/pages/_app.tsx",
   "author": {
-    "name": "<%= props.author %>",
-    "email": "<YOUR_EMAIL>"
+    "name": "<AUTHOR>",
+    "email": "<EMAIL>"
   },
   "scripts": {
     "build": "next build",
@@ -56,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<%= props.githubUsername %>/<YOUR_PROJECT_NAME>.git"
+    "url": "https://github.com/<GITHUB_USERNAME>/<GITHUB_REPO_NAME>.git"
   },
   "keywords": []
 }

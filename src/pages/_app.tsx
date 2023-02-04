@@ -6,7 +6,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
     <>
       <Head>
-        <title><%= props.projectName %></title>
+        <title><PROJECT_NAME></title>
       </Head>
       <Component {...pageProps} />
     </>

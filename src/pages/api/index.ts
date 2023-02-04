@@ -6,5 +6,5 @@ export default function handler(
 ): void {
   return response
     .status(200)
-    .json({ title: "Hello, <%= props.author %>!", message: "Have a nice coding!" });
+    .json({ title: "Hello, <AUTHOR>!", message: "Have a nice coding!" });
 }
