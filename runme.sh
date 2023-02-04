@@ -28,13 +28,13 @@ GITHUB_REPO_NAME=$(echo "$PROJECT_NAME" | tr -d ' ')
 
 break_line
 
-echo "Deleting boilerplate .git ..."
+echo "Deleting boilerplate .git..."
 
 rm -rf .git
 
 # replaces placeholders with input data
 
-echo "Adding information to the project ..."
+echo "Adding information to the project..."
 
 # cypress/e2e/spec.cy.ts
 sed -i "s/<GITHUB_USERNAME>/$GITHUB_USERNAME/g" cypress/e2e/spec.cy.ts
@@ -69,7 +69,7 @@ sed -i "s/<PROJECT_NAME>/$PROJECT_NAME/g" README.md
 sed -i "s/<GITHUB_USERNAME>/$GITHUB_USERNAME/g" README.md
 sed -i "s/<AUTHOR>/$AUTHOR/g" README.md
 
-echo "Installing dependencies ..."
+echo "Installing dependencies..."
 
 break_line
 
@@ -83,7 +83,7 @@ fi
 
 break_line
 
-echo "Running lint ..."
+echo "Running lint..."
 
 break_line
 
@@ -97,7 +97,7 @@ fi
 
 break_line
 
-echo "Initializing git ..."
+echo "Initializing git..."
 
 break_line
 
@@ -105,13 +105,13 @@ git init
 
 break_line
 
-echo "Adding remote origin ..."
+echo "Adding remote origin..."
 
 git branch -m main
 
-git remote add origin "https://github.com/riandeoliveira/frontend-boilerplate"
+git remote add origin "https://github.com/$GITHUB_USERNAME/$GITHUB_REPO_NAME"
 
-echo "Initializing git flow ..."
+echo "Initializing git flow..."
 
 break_line
 
@@ -119,7 +119,7 @@ git flow init -d
 
 break_line
 
-echo "Renaming 'master' to 'main' ..."
+echo "Renaming 'master' to 'main'..."
 
 break_line
 
@@ -129,8 +129,33 @@ git checkout develop
 
 break_line
 
-echo "Deleting runme.sh file ..."
-echo "You are ready to start!"
+echo "Adding 'runme.sh' file to '.gitignore'..."
+
+echo "runme.sh" >> ".gitignore"
+
+echo "Adding files to the staging area..."
+
+git add .
+
+echo "Making the first commit..."
+
+git commit -m "feat: initial commit"
+
+echo "Pushing the changes..."
+
+git push origin main
+git push origin develop
+
+echo "Starting project..."
+
+yarn dev
+
+if [ $? -eq 1 ]; then
+  npm run dev
+fi
+
+echo "Deleting 'runme.sh' file..."
+echo "Have a nice coding, $AUTHOR!"
 
 sleep 3
 
