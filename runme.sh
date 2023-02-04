@@ -85,6 +85,8 @@ break_line
 
 echo "Running lint ..."
 
+break_line
+
 # try lint with yarn
 yarn lint
 
@@ -92,6 +94,38 @@ if [ $? -eq 1 ]; then
   # try lint with npm
   npm run lint
 fi
+
+break_line
+
+echo "Initializing git ..."
+
+break_line
+
+git init
+
+break_line
+
+echo "Adding remote origin ..."
+
+git branch -m main
+
+git remote add origin "https://github.com/riandeoliveira/frontend-boilerplate"
+
+echo "Initializing git flow ..."
+
+break_line
+
+git flow init -d
+
+break_line
+
+echo "Renaming 'master' to 'main' ..."
+
+break_line
+
+git checkout master
+git branch -m main
+git checkout develop
 
 break_line
 
