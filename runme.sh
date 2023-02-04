@@ -69,6 +69,18 @@ sed -i "s/<PROJECT_NAME>/$PROJECT_NAME/g" README.md
 sed -i "s/<GITHUB_USERNAME>/$GITHUB_USERNAME/g" README.md
 sed -i "s/<AUTHOR>/$AUTHOR/g" README.md
 
+echo "Installing dependencies ..."
+
+break_line
+
+# trying with yarn
+yarn
+
+if [ $? -eq 1 ]; then
+  # trying with npm
+  npm install
+fi
+
 echo "Deleting runme.sh file ..."
 echo "You are ready to start!"
 
