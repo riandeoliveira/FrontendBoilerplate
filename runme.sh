@@ -81,6 +81,20 @@ if [ $? -eq 1 ]; then
   npm install
 fi
 
+break_line
+
+echo "Running lint ..."
+
+# try lint with yarn
+yarn lint
+
+if [ $? -eq 1 ]; then
+  # try lint with npm
+  npm run lint
+fi
+
+break_line
+
 echo "Deleting runme.sh file ..."
 echo "You are ready to start!"
 
