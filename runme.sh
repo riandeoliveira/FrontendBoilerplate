@@ -10,6 +10,7 @@ function break_line() {
 break_line
 
 # ask for information
+
 echo "Before we get started, let's answer a few questions."
 echo "You can change the answers whenever you want later :)"
 
@@ -27,7 +28,15 @@ GITHUB_REPO_NAME=$(echo "$PROJECT_NAME" | tr -d ' ')
 
 break_line
 
+echo "Deleting boilerplate .git ..."
+
+rm -rf .git
+
+break_line
+
 # replaces placeholders with input data
+
+echo "Adding information to the project ..."
 
 # cypress/e2e/spec.cy.ts
 sed -i "s/<GITHUB_USERNAME>/$GITHUB_USERNAME/g" cypress/e2e/spec.cy.ts
