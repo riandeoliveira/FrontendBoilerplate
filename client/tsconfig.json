@@ -5,7 +5,7 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "alwaysStrict": true,
-    "baseUrl": "./src/",
+    "baseUrl": "src",
     "checkJs": false,
     "declaration": false,
     "disableSizeLimit": false,
@@ -40,8 +40,8 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "ES5"
+    "target": "ESNext"
   },
-  "exclude": ["node_modules"],
+  "exclude": ["build", "dist", "node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
