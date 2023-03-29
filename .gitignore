@@ -1,8 +1,13 @@
+# all
 .env
+build
+dist
+node_modules
+
+# client
 .next
 .swc
 .vercel
-/build
-/coverage
-/dist
-/node_modules
+coverage
+
+# server
