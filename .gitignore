@@ -1,13 +1,42 @@
-# all
+# Global
+.DS_Store
 .env
-build
-dist
-node_modules
-
-# client
-.next
-.swc
-.vercel
 coverage
+lerna-debug.log*
+node_modules
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# server
+# Client
+
+client/.env*.local
+client/.next
+client/.pnp
+client/.pnp.js
+client/.vercel
+client/*.pem
+client/*.tsbuildinfo
+client/build
+client/next-env.d.ts
+client/out
+
+# Server
+
+server/!.vscode/extensions.json
+server/!.vscode/launch.json
+server/!.vscode/settings.json
+server/!.vscode/tasks.json
+server/.c9/
+server/.classpath
+server/.idea
+server/.nyc_output
+server/.project
+server/.settings/
+server/.vscode/*
+server/*.launch
+server/*.log
+server/*.sublime-workspace
+server/dist
+server/logs
