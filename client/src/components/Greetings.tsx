@@ -1,7 +1,7 @@
-import { useCounter } from "hooks/useCounter";
+import { useCounterStore } from "store/useCounterStore";
 
 export const Greetings = (): JSX.Element => {
-  const { counter, increment } = useCounter();
+  const counterStore = useCounterStore();
 
   return (
     <>
@@ -10,10 +10,10 @@ export const Greetings = (): JSX.Element => {
       </h1>
       <h2 className="text-xl text-white">Have a nice coding!</h2>
       <button
-        onClick={increment}
+        onClick={counterStore.increment}
         className="bg-primary-500 text-white p-2 rounded-md font-medium"
       >
-        Click me! {counter.value}
+        Click me! {counterStore.value}
       </button>
     </>
   );
