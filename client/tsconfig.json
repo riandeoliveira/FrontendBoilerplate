@@ -39,7 +39,7 @@
     "strict": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
-    "strictPropertyInitialization": true,
+    "strictPropertyInitialization": false,
     "target": "ESNext"
   },
   "exclude": ["build", "dist", "node_modules"],

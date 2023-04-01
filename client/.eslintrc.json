@@ -45,7 +45,6 @@
     "generator-star-spacing": "error",
     "guard-for-in": "error",
     "id-denylist": "error",
-    "indent": ["error", 2],
     "jsx-quotes": "error",
     "key-spacing": "error",
     "keyword-spacing": "error",
