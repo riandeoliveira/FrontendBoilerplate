@@ -1,11 +1,11 @@
 import { Module } from "@nestjs/common";
-import { PrismaService } from "modules/prisma/prisma.service";
-import { UserController } from "modules/user/user.controller";
-import { UserService } from "modules/user/user.service";
+import { JwtModule } from "modules/jwt/jwt.module";
+import { UserModule } from "modules/user/user.module";
 
 @Module({
-  imports: [],
-  controllers: [UserController],
-  providers: [PrismaService, UserService],
+  imports: [JwtModule, UserModule],
+  controllers: [],
+  providers: [],
+  exports: [],
 })
 export class AppModule {}
