@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   updateProfile,
@@ -9,7 +10,8 @@ import {
   type User,
   type UserCredential,
 } from "firebase/auth";
-import { auth } from "services/firebase";
+import { deleteDoc, doc, setDoc, updateDoc } from "firebase/firestore";
+import { auth, db } from "services/firebase";
 import type { UserState, UserType } from "types/user";
 import { create } from "zustand";
 
@@ -22,7 +24,7 @@ export const useUserStore = create<UserState>((set, get): UserState => {
       authenticated: false,
     },
 
-    clear: (): void => {
+    clear() {
       set({
         user: {
           id: "",
@@ -33,13 +35,19 @@ export const useUserStore = create<UserState>((set, get): UserState => {
       });
     },
 
-    delete: async (): Promise<void> => {
-      await auth.currentUser?.delete();
+    async delete(): Promise<void> {
+      try {
+        await deleteDoc(doc(db, "users", auth.currentUser?.uid as string));
 
-      get().clear();
+        await auth.currentUser?.delete();
+
+        get().clear();
+      } catch (error) {
+        console.error(error);
+      }
     },
 
-    login: async (email: string, password: string): Promise<void> => {
+    async login(email: string, password: string): Promise<void> {
       try {
         const credentials: UserCredential = await signInWithEmailAndPassword(
           auth,
@@ -62,17 +70,21 @@ export const useUserStore = create<UserState>((set, get): UserState => {
       }
     },
 
-    logout: async (): Promise<void> => {
-      await auth.signOut();
+    async logout(): Promise<void> {
+      try {
+        await auth.signOut();
 
-      get().clear();
+        get().clear();
+      } catch (error) {
+        console.error(error);
+      }
     },
 
-    register: async (
+    async register(
       name: string,
       email: string,
       password: string
-    ): Promise<void> => {
+    ): Promise<void> {
       try {
         const credentials: UserCredential =
           await createUserWithEmailAndPassword(auth, email, password);
@@ -80,6 +92,11 @@ export const useUserStore = create<UserState>((set, get): UserState => {
         await updateProfile(credentials.user, { displayName: name });
 
         const userId: string = credentials.user.uid;
+
+        await setDoc(doc(db, "users", userId), {
+          name,
+          email,
+        });
 
         set({
           user: {
@@ -94,23 +111,47 @@ export const useUserStore = create<UserState>((set, get): UserState => {
       }
     },
 
-    resetPassword: async (email: string): Promise<void> => {
-      await sendPasswordResetEmail(auth, email);
+    async resetPassword(email: string): Promise<void> {
+      try {
+        await sendPasswordResetEmail(auth, email);
+      } catch (error) {
+        console.error(error);
+      }
     },
 
-    updateEmail: async (email: string): Promise<void> => {
-      await updateUserEmail(auth.currentUser as User, email);
+    async updateEmail(email: string): Promise<void> {
+      try {
+        await updateUserEmail(auth.currentUser as User, email);
+
+        await updateDoc(doc(db, "users", auth.currentUser?.uid as string), {
+          email,
+        });
+      } catch (error) {
+        console.error(error);
+      }
     },
 
-    updateName: async (name: string): Promise<void> => {
-      await updateProfile(auth.currentUser as User, { displayName: name });
+    async updateName(name: string): Promise<void> {
+      try {
+        await updateProfile(auth.currentUser as User, { displayName: name });
+
+        await updateDoc(doc(db, "users", auth.currentUser?.uid as string), {
+          name,
+        });
+      } catch (error) {
+        console.error(error);
+      }
     },
 
-    updatePassword: async (password: string): Promise<void> => {
-      await updateUserPassword(auth.currentUser as User, password);
+    async updatePassword(password: string): Promise<void> {
+      try {
+        await updateUserPassword(auth.currentUser as User, password);
+      } catch (error) {
+        console.error(error);
+      }
     },
 
-    verify: (): void => {
+    verifyAuth(): void {
       onAuthStateChanged(auth, (user: User | null) => {
         const userProps: Omit<UserType, "password"> = get().user;
 
@@ -130,6 +171,14 @@ export const useUserStore = create<UserState>((set, get): UserState => {
           });
         }
       });
+    },
+
+    async verifyEmail(): Promise<void> {
+      try {
+        await sendEmailVerification(auth.currentUser as User);
+      } catch (error) {
+        console.error(error);
+      }
     },
   };
 });

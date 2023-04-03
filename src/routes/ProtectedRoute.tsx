@@ -12,7 +12,7 @@ export const ProtectedRoute = ({
   const userStore: UserState = useUserStore();
 
   useEffect(() => {
-    userStore.verify();
+    userStore.verifyAuth();
   }, []);
 
   return <>{children}</>;
