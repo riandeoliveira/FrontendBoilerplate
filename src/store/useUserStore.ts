@@ -12,7 +12,7 @@ import {
 } from "firebase/auth";
 import { deleteDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "services/firebase";
-import type { UserState, UserType } from "types/user";
+import type { UserState } from "types/user";
 import { create } from "zustand";
 
 export const useUserStore = create<UserState>((set, get): UserState => {
@@ -153,19 +153,21 @@ export const useUserStore = create<UserState>((set, get): UserState => {
 
     verifyAuth(): void {
       onAuthStateChanged(auth, (user: User | null) => {
-        const userProps: Omit<UserType, "password"> = get().user;
-
         if (user) {
           set({
             user: {
-              ...userProps,
+              id: user.uid,
+              name: user.displayName as string,
+              email: user.email as string,
               authenticated: true,
             },
           });
         } else {
           set({
             user: {
-              ...userProps,
+              id: "",
+              name: "",
+              email: "",
               authenticated: false,
             },
           });
