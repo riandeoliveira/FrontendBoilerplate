@@ -1,0 +1,4 @@
+{
+  // Stylelint
+  "stylelint.validate": ["scss"]
+}
