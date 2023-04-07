@@ -55,14 +55,14 @@
     </tr>
     <tr>
       <td align="center" width="110" height="110">
-        <img src="https://skillicons.dev/icons?i=jest" />
+        <img src="https://skillicons.dev/icons?i=markdown" />
         <br>
-        <span>Jest</span>
+        <span>Markdown</span>
       </td>
       <td align="center" width="110" height="110">
-        <img src="https://skillicons.dev/icons?i=tailwind" />
+        <img src="https://skillicons.dev/icons?i=sass" />
         <br>
-        <span>TailwindCSS</span>
+        <span>SASS</span>
       </td>
       <td align="center" width="110" height="110">
         <img src="https://skillicons.dev/icons?i=ts" />
