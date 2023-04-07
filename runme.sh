@@ -39,8 +39,8 @@ echo "Adding information to the project..."
 # cypress/e2e/spec.cy.ts
 sed -i "s/<GITHUB_USERNAME>/$GITHUB_USERNAME/g" cypress/e2e/spec.cy.ts
 
-# src/components/Greetings.tsx
-sed -i "s/<AUTHOR>/$AUTHOR/g" src/components/Greetings.tsx
+# src/components/Greetings/index.tsx
+sed -i "s/<AUTHOR>/$AUTHOR/g" src/components/Greetings/index.tsx
 
 # src/pages/api/index.ts
 sed -i "s/<AUTHOR>/$AUTHOR/g" src/pages/api/index.ts
