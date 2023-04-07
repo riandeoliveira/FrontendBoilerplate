@@ -1,0 +1,7 @@
+// Media queries
+
+@mixin media-query($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}

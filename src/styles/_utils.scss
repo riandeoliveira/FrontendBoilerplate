@@ -1,0 +1,55 @@
+// Utilities
+
+@use "./animations" as *;
+@use "./colors" as *;
+@use "./fonts" as *;
+
+// Animated styles for buttons
+@mixin animated-button {
+  $opacity: 80;
+  $button-color: #{$neutral-999}#{$opacity};
+
+  border-bottom: 3rem solid $button-color;
+  border-right: 3rem solid $button-color;
+
+  &:active {
+    border-bottom: none;
+    border-left: 3rem solid $button-color;
+    border-right: none;
+    border-top: 3rem solid $button-color;
+  }
+}
+
+// Styles for focus with accessibility in elements through the TAB key.
+@mixin focus($size: "small", $color-name: "#000000", $brightness: "light") {
+  $hex-color-opacity: 80;
+  $color: "";
+
+  @if $brightness == "dark" {
+    $color: $color-name;
+  }
+
+  @if $brightness == "light" {
+    $color: #{$color-name}#{$hex-color-opacity};
+  }
+
+  @if $size == "large" {
+    outline: 0;
+    transition: box-shadow 0.15s;
+
+    &:focus-visible {
+      box-shadow: 0 0 0 4rem $color;
+    }
+  }
+
+  @if $size == "small" {
+    &:focus-visible {
+      outline: 2rem solid $color;
+    }
+  }
+}
+
+// Allows simple import of fonts from Google Fonts.
+@mixin google-font($font) {
+  @import url("https://fonts.googleapis.com/css2?family=#{$font}:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+}
