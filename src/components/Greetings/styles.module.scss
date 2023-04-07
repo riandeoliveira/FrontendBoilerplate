@@ -1,0 +1,23 @@
+@use "../../styles" as *;
+
+.title {
+  font-size: 32rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 24rem;
+  font-weight: 400;
+}
+
+.button {
+  @include animated-button;
+
+  background-color: $primary-500;
+  border-radius: 6rem;
+  color: $neutral-000;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 8rem;
+}
