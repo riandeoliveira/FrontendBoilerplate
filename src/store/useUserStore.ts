@@ -12,10 +12,10 @@ import {
 } from "firebase/auth";
 import { deleteDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "services/firebase";
-import type { UserState } from "types/user";
+import { State } from "types/state";
 import { create } from "zustand";
 
-export const useUserStore = create<UserState>((set, get): UserState => {
+export const useUserStore = create<State.User>((set, get): State.User => {
   return {
     user: {
       id: "",

@@ -1,14 +1,14 @@
+import { State } from "types/state";
 import { create } from "zustand";
 
-type CounterState = {
-  value: number;
-  increment: () => void;
-};
-
-export const useCounterStore = create<CounterState>((set): CounterState => {
+export const useCounterStore = create<State.Counter>((set): State.Counter => {
   return {
     value: 0,
 
-    increment: () => set((state) => ({ value: state.value + 1 })),
+    increment(): void {
+      set((state) => ({
+        value: state.value + 1,
+      }));
+    },
   };
 });
